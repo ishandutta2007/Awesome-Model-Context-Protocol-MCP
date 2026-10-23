@@ -1,68 +1,161 @@
-# Awesome-Model-Context-Protocol-MCP
+<p align="center">
+  <img src="assets/banner.svg" alt="Awesome Model Context Protocol (MCP) Ecosystem Banner" width="100%" />
+</p>
 
-## Top Model Context Protocol (MCP) Tools Ecosystem
-
-**Curated List of SaaS Products & Open-Source GitHub Projects**  
-*Focused on Tool Discovery, OAuth-Managed Connectivity & Standardized Server Implementations*  
-**Last updated: March 2026**
-
-This repository tracks notable **SaaS platforms** and **open-source projects** for the **Model Context Protocol (MCP)**. MCP is an open standard that lets AI assistants securely access tools and data sources — filesystems, databases, APIs, and SaaS apps — through a unified interface. These tools provide the servers, registries, and platforms that make MCP practical at scale.
-
-**Examples** include the official reference servers, Composio, Smithery, Superface, and the curated community lists (the category leaders).
-
-**Open-source emphasis**: This section is heavily expanded with every major active project for self-hosting, standardized tool interfaces, and transparent server implementations — ideal for developers building agent integrations who need portability across clients rather than vendor-specific plugins.
-
-Contributions welcome! Open a PR to add/update entries. Keep descriptions factual and link to official sites.
-
-## Table of Contents
-- [SaaS/Hosted Platforms](#saas-hosted-platforms)
-- [Open-Source GitHub Projects](#open-source-github-projects)
-- [How to Contribute](#how-to-contribute)
-- [Disclaimer](#disclaimer)
-
-## SaaS/Hosted Platforms
-
-- **Composio** — **The managed MCP connectivity layer for 1000+ apps.** Handles OAuth, permissions, and intelligent tool routing, with a **remote sandbox for bulk data processing** so large tool responses don't flood the context window [citation:5]. Exposes **7 meta-tools** instead of thousands of individual app tools: search, connect via managed OAuth, execute, and process results in a remote workbench. Compatible with Claude Code, Codex, Cursor, and any MCP client [citation:5]. **Best for teams wanting managed OAuth and cross-app workflows** without building individual connectors.
-
-- **Smithery** — **The MCP server registry and hosting platform.** Provides a searchable API for discovering MCP servers by name, description, tags, or qualified name [citation:6]. Supports filtering by remote/local, verified status, and deployment status. **Best for developers wanting to discover and install MCP servers** without browsing scattered GitHub repos.
-
-- **Superface** — **The MCP server that exposes selected Superface tools via a managed API key.** Configure which tools you want in the Superface dashboard, copy your API key, and add the server to Claude Desktop or any MCP client via npx or Docker [citation:8]. **Best for teams already using Superface's API integration platform** wanting MCP access to their configured tools.
-
-## Open-Source GitHub Projects
-
-- **[Official Reference Servers (modelcontextprotocol/servers)](https://github.com/modelcontextprotocol/servers)** — **The canonical MCP server implementations maintained by the protocol authors.** Apache 2.0 licensed. **v2.0.0 refactored all servers to support the modern era spec while answering legacy clients** [citation:4]. **Current reference servers**: **Everything** (test server with prompts, resources, tools), **Fetch** (web content fetching for LLM usage), **Filesystem** (secure file operations with configurable access controls), **Git** (read, search, manipulate Git repos), **Memory** (knowledge graph-based persistent memory), **Sequential Thinking** (dynamic reflective problem-solving), and **Time** (timezone conversion) [citation:11]. **Best for any MCP implementation** — these are the reference patterns every other server follows.
-
-- **[punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)** — **The most comprehensive curated list of MCP servers.** The de facto community directory, cited in academic papers and referenced by the official MCP documentation [citation:9][citation:12]. **Organized by category with emoji tags** indicating language (🐍 Python, 📇 TypeScript, #️⃣ C#), deployment (☁️ cloud, 🏠 local), and platform (🍎 macOS, 🪟 Windows, 🐧 Linux) [citation:1]. **Includes servers for**: Java semantic analysis, Godot GDScript analysis, C#/.NET Roslyn analysis, JMeter/k6/Locust performance testing, Docker management, Xcode integration, App Store release automation, OpenAPI discovery, Excel automation, WCAG accessibility testing, RAG flight recording, and self-evolving LLM tool generation [citation:1]. **Best for discovering community servers** across every conceivable integration.
-
-- **[OpenTools](https://arxiv.org/html/2604.00137v2)** — **The community-driven framework for reliable, standardized AI agent tools.** Academic paper (CC BY 4.0). **Review-oriented lifecycle**: each tool has a natural-language description, typed JSON schema, output contract, and tool card recording dependencies, provenance, limitations, risk evidence, and evaluation history [citation:15]. **Layered non-executing inspection** before any functional test: AST analyzer identifies syntax errors, credential access, filesystem writes, network capabilities, and embedded secrets; integrates Gitleaks, detect-secrets, Bandit, and Semgrep [citation:15]. **Gated evaluation** — the hosted interface inspects but does not execute newly uploaded tools; maintainers run functional tests locally for selected tools that satisfy risk policy [citation:15]. **MCP integration** supports discovery, inspection, evaluation, and invocation of explicitly allowlisted tools [citation:15]. **Best for teams wanting vetted, reliable tool contributions** rather than an unmoderated registry.
-
-- **[OpenTool SDK](https://pypi.org/project/opentool-sdk/)** — **Python SDK for the OpenTool MCP server.** MIT licensed. **Sync and async clients** for managing tools, auth, and API keys programmatically [citation:7]. **Tool execution via MCP**: `client.tools.execute("github.create_issue", {...})` [citation:7]. **OAuth connection management**: `client.auth.get_connect_url("github")` returns a URL the user visits to authorize [citation:7]. **API key management**: list, create, and revoke keys with raw key returned once [citation:7]. **Best for Python developers** wanting programmatic control over MCP tool connections.
-
-### Additional Strong Open-Source Options
-
-- **bgizdov/awesome-mcp-servers** — Automatically generated MCP server list with regular updates [citation:2].
-- **ever-works/awesome-mcp-servers** — Another curated list with categorized detail files .
-- **mcp-openapi** — Discover OpenAPI specs and generate callable MCP tools with Bearer, API key, and Basic auth support [citation:1].
-- **mcp-broker** — Local MCP broker exposing one client entry that routes to many upstream servers with profile gates and mutating-tool allowlists [citation:1].
-
-**Frameworks for building custom systems**: Combine **Official Reference Servers** for canonical implementation patterns, **Composio** for managed OAuth across 1000+ apps with remote sandbox processing, **Smithery** for server discovery and registry search, **OpenTools** for vetted community contributions with risk evaluation, and **punkpeye/awesome-mcp-servers** for breadth of community integrations — to build an MCP toolchain tailored to your client (Claude, Cursor, Codex), connectivity requirements (OAuth vs local), and governance needs.
-
-## How to Contribute
-
-1. Fork the repo.
-2. Add/edit entries in `README.md` (follow existing format).
-3. Include: name, link, 1–2 sentence description, and whether it's SaaS or open-source.
-4. Submit PR with a short explanation.
-
-Star the repo if you find it useful!
-
-## Disclaimer
-
-- This is a **community-curated** list — not exhaustive and not an endorsement.
-- MCP servers differ significantly in deployment model (local stdio vs remote HTTP), authentication requirements, and risk profile. **The official reference servers are the safest starting point** — they demonstrate correct patterns and are maintained by the protocol authors [citation:11]. **Community server quality varies** — the punkpeye list is comprehensive but unmoderated [citation:1], while OpenTools provides a gated review process with AST inspection and maintainer approval [citation:15]. **OAuth-managed platforms like Composio** simplify connectivity but route tool calls through their infrastructure [citation:5]. **Always review what filesystem access, network capabilities, and credential handling an MCP server requests** before connecting it to your agent.
-- Self-hosted open-source solutions require proper Node.js or Python environment setup depending on the server, and awareness that local stdio servers run with the permissions of the process that launched them.
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a><a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Model-Context-Protocol-MCP/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Model-Context-Protocol-MCP?style=flat-square&logo=github&color=gold" alt="Repo Stars" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Model-Context-Protocol-MCP/network/members"><img src="https://img.shields.io/github/forks/ishandutta2007/Awesome-Model-Context-Protocol-MCP?style=flat-square&logo=github&color=blue" alt="Repo Forks" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Model-Context-Protocol-MCP/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="License" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Model-Context-Protocol-MCP/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" /></a>
+  <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+</p>
 
 ---
 
-**Made for AI engineers building agent integrations on the open MCP standard.**
-Let's make MCP tooling more open, standardized, and security-reviewed.
+# ⚡ Awesome Model Context Protocol (MCP)
+
+> **The definitive directory of Model Context Protocol (MCP) servers, managed SaaS gateways, developer SDKs, and enterprise agent infrastructure.**
+
+The **Model Context Protocol (MCP)** is an open standard introduced by Anthropic that allows AI agents, LLMs, and assistants (Claude Desktop, Claude Code, Cursor, Codex, Windsurf, OpenCode) to securely connect to external tools, databases, enterprise SaaS platforms, and local developer environments via a standardized client-server protocol.
+
+---
+
+## 📑 Table of Contents
+
+- [⚡ Awesome Model Context Protocol (MCP)](#-awesome-model-context-protocol-mcp)
+  - [📑 Table of Contents](#-table-of-contents)
+  - [📊 Sector Overview \& Market Dynamics](#-sector-overview--market-dynamics)
+  - [🏢 Enterprise SaaS \& Managed MCP Gateways](#-enterprise-saas--managed-mcp-gateways)
+  - [🛠️ Open-Source MCP Servers, SDKs \& Tooling](#️-open-source-mcp-servers-sdks--tooling)
+  - [🎯 Key Architectural Highlights](#-key-architectural-highlights)
+  - [🤝 How to Contribute](#-how-to-contribute)
+  - [🛡️ Security \& Operational Disclaimer](#️-security--operational-disclaimer)
+  - [📈 Star History](#-star-history)
+  - [💖 Support \& Community](#-support--community)
+
+---
+
+## 📊 Sector Overview & Market Dynamics
+
+The global AI agent infrastructure and autonomous execution market is projected to expand from **$7.84 billion in 2025 to over $52.62 billion by 2030** (compounding at a CAGR of 46.3%), catalyzed by widespread enterprise migration toward agentic tool execution and context-aware LLMs. 
+
+The market exhibits a **bifurcated structure**:
+- **Tooling & Integration Layer:** **Moderately to highly fragmented**, characterized by rapid product launches across managed OAuth gateways, specialized documentation search engines, local proxy runners, and open-source server repositories.
+- **Foundational Execution Layer:** **Highly concentrated**, with hyperscalers and frontier model providers (Anthropic, OpenAI, Microsoft, Google) exerting strong gravity over protocol adoption, client interfaces, and foundational runtime primitives.
+
+---
+
+## 🏢 Enterprise SaaS & Managed MCP Gateways
+
+The following commercial platforms offer managed authentication (OAuth 2.0 / API keys), hosted MCP proxy endpoints, token overhead optimization, and enterprise governance.
+
+*Sorted descending by Company Size (Valuation / Total Capital Raised).*
+
+| 🏢 Platform | 💰 Company Size (Valuation / Raised) | 🏷️ Starting Tier Pricing | 🆓 Free Tier Limits | ⚙️ Key MCP Capabilities |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Langfuse](https://langfuse.com)** | **$15.0B Valuation** *(ClickHouse parent post-$400M Series D; $4.5M seed)* | **$29 / month** *(Core Plan; Pro at $199/mo)* | **Free forever (Hobby Plan)**: 50,000 traces/events per month, 30-day retention, 2 user seats, zero credit card required. | Open-source LLM observability, trace evaluation, prompt engineering, and native MCP server tracing endpoints for agent workflows. |
+| **[Arcade.dev](https://arcade.dev)** *(acquired [Smithery](https://smithery.ai))* | **~$250M Valuation** *($72.0M total funding; $60M Series A led by SYN Ventures)* | **$25 / month** *(Team Platform fee + $0.01/tool call, $0.10/auth event)* | **Free forever (Arcade Cloud)**: 2,000 tool executions/month and 2,000 user auth events/month with no card required. | Action execution runtime and secure MCP gateway with managed OAuth, identity governance, and the integrated Smithery registry directory. |
+| **[Composio](https://composio.dev)** | **~$150M Valuation** *($29.0M total funding; $25M Series A led by Lightspeed)* | **$29 / month** *(Pro Plan with dedicated concurrency quotas)* | **Free forever (Hobby Plan)**: 100,000 own-app tool executions/month, 50,000 trigger events/month, supporting up to 3 team seats. | Managed MCP connectivity layer spanning 1,000+ apps (GitHub, Salesforce, Jira, Slack) with remote sandboxed processing to prevent context bloat. |
+| **[Superface](https://superface.ai)** | **~$20M Valuation** *(€3.8M / ~$4.1M venture funding raised)* | **€49 / month** *(~$53/month Starter Plan)* | **Free forever (Developer Plan)**: 1,000 API runs/tool executions per month with access to community hub connectors. | Zero-code MCP wrapper and managed API gateway transforming external REST APIs into callable MCP endpoints using single unified API keys. |
+| **[Toolhouse](https://toolhouse.ai)** | **~$15M Valuation** *(Seed funding from Ganas Ventures, 500 Global, Vento)* | **$5.00 per 1,000 requests** *(Go Pay-As-You-Go Plan)* | **Free forever (Free Tier)**: 300 tool executions per month, 3 active autonomous agents, and community support. | Agent action marketplace providing sandboxed Python code execution, web scrapers, email dispatchers, and memory tools via MCP endpoints. |
+
+---
+
+## 🛠️ Open-Source MCP Servers, SDKs & Tooling
+
+High-impact open-source implementations, official protocol libraries, developer inspection suites, and community registries.
+
+*Sorted descending by GitHub Stargazer Count.*
+
+| 📦 Repository & Project | ⭐ GitHub Stars | 📜 License | 💡 Architecture & Primary Use Case |
+| :--- | :--- | :--- | :--- |
+| **[punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)** | [![Stars](https://img.shields.io/github/stars/punkpeye/awesome-mcp-servers?style=social&color=white)](https://github.com/punkpeye/awesome-mcp-servers/stargazers) | MIT | **De facto community directory** organizing hundreds of community MCP servers with metadata tags for language, cloud vs. local runtime, and platform compatibility. |
+| **[modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers)** | [![Stars](https://img.shields.io/github/stars/modelcontextprotocol/servers?style=social&color=white)](https://github.com/modelcontextprotocol/servers/stargazers) | Apache-2.0 | **Official reference servers** maintained by protocol authors: `Everything` (test/demo), `Fetch` (web extraction), `Filesystem` (secure file I/O), `Git` (VCS operations), `Memory` (knowledge graph), `Sequential Thinking`, and `Time`. |
+| **[modelcontextprotocol/python-sdk](https://github.com/modelcontextprotocol/python-sdk)** | [![Stars](https://img.shields.io/github/stars/modelcontextprotocol/python-sdk?style=social&color=white)](https://github.com/modelcontextprotocol/python-sdk/stargazers) | MIT | **Official Python SDK** providing async client/server primitives, SSE (Server-Sent Events) and stdio transports, plus the high-level `FastMCP` interface. |
+| **[microsoft/mcp-for-beginners](https://github.com/microsoft/mcp-for-beginners)** | [![Stars](https://img.shields.io/github/stars/microsoft/mcp-for-beginners?style=social&color=white)](https://github.com/microsoft/mcp-for-beginners/stargazers) | MIT | **Microsoft open-source curriculum** covering core MCP fundamentals, session setup, tool dispatch, and service orchestration across .NET, Java, TypeScript, Rust, and Python. |
+| **[modelcontextprotocol/typescript-sdk](https://github.com/modelcontextprotocol/typescript-sdk)** | [![Stars](https://img.shields.io/github/stars/modelcontextprotocol/typescript-sdk?style=social&color=white)](https://github.com/modelcontextprotocol/typescript-sdk/stargazers) | MIT | **Official TypeScript/Node.js SDK** featuring strict Zod schema validation, modular stream transports, and complete protocol type declarations. |
+| **[hangwin/mcp-chrome](https://github.com/hangwin/mcp-chrome)** | [![Stars](https://img.shields.io/github/stars/hangwin/mcp-chrome?style=social&color=white)](https://github.com/hangwin/mcp-chrome/stargazers) | MIT | **Chrome browser extension server** enabling LLMs to automate tabs, extract clean DOM representations, conduct semantic search, and inspect live network responses. |
+| **[tadata-org/fastapi_mcp](https://github.com/tadata-org/fastapi_mcp)** | [![Stars](https://img.shields.io/github/stars/tadata-org/fastapi_mcp?style=social&color=white)](https://github.com/tadata-org/fastapi_mcp/stargazers) | MIT | **FastAPI MCP bridge** that automatically transforms existing Python FastAPI route endpoints into standardized MCP tools with authentication and Pydantic schema parsing. |
+| **[modelcontextprotocol/inspector](https://github.com/modelcontextprotocol/inspector)** | [![Stars](https://img.shields.io/github/stars/modelcontextprotocol/inspector?style=social&color=white)](https://github.com/modelcontextprotocol/inspector/stargazers) | MIT | **Visual developer test suite** allowing developers to connect to any local or remote MCP server, trigger tools interactively, evaluate prompt templates, and inspect resources. |
+| **[mobile-next/mobile-mcp](https://github.com/mobile-next/mobile-mcp)** | [![Stars](https://img.shields.io/github/stars/mobile-next/mobile-mcp?style=social&color=white)](https://github.com/mobile-next/mobile-mcp/stargazers) | MIT | **Mobile device automation server** providing agents with UI hierarchy inspection, screenshot capture, gesture automation, and screen scraping for iOS and Android. |
+| **[modelcontextprotocol/modelcontextprotocol](https://github.com/modelcontextprotocol/modelcontextprotocol)** | [![Stars](https://img.shields.io/github/stars/modelcontextprotocol/modelcontextprotocol?style=social&color=white)](https://github.com/modelcontextprotocol/modelcontextprotocol/stargazers) | MIT | **Specification & governance repository** detailing protocol architecture, JSON-RPC 2.0 messages, lifecycle flows, capabilities negotiation, and security standards. |
+| **[mark3labs/mcp-go](https://github.com/mark3labs/mcp-go)** | [![Stars](https://img.shields.io/github/stars/mark3labs/mcp-go?style=social&color=white)](https://github.com/mark3labs/mcp-go/stargazers) | MIT | **High-performance Go implementation** providing lightweight MCP servers and clients with minimal memory footprint and native goroutine concurrency. |
+| **[lastmile-ai/mcp-agent](https://github.com/lastmile-ai/mcp-agent)** | [![Stars](https://img.shields.io/github/stars/lastmile-ai/mcp-agent?style=social&color=white)](https://github.com/lastmile-ai/mcp-agent/stargazers) | Apache-2.0 | **Agent orchestration framework** leveraging Model Context Protocol primitives to build multi-agent workflows, router patterns, and persistent state machines. |
+| **[modelcontextprotocol/registry](https://github.com/modelcontextprotocol/registry)** | [![Stars](https://img.shields.io/github/stars/modelcontextprotocol/registry?style=social&color=white)](https://github.com/modelcontextprotocol/registry/stargazers) | Apache-2.0 | **Decentralized community registry service** for publishing, resolving, and discovering verified MCP servers across public package registries. |
+| **[open-webui/mcpo](https://github.com/open-webui/mcpo)** | [![Stars](https://img.shields.io/github/stars/open-webui/mcpo?style=social&color=white)](https://github.com/open-webui/mcpo/stargazers) | MIT | **OpenAPI-to-MCP dynamic proxy server** allowing agents to consume arbitrary OpenAPI 3.x specifications on the fly with Bearer, API key, and Basic auth pass-through. |
+| **[wong2/awesome-mcp-servers](https://github.com/wong2/awesome-mcp-servers)** | [![Stars](https://img.shields.io/github/stars/wong2/awesome-mcp-servers?style=social&color=white)](https://github.com/wong2/awesome-mcp-servers/stargazers) | MIT | **Curated index of community servers** categorized by databases (PostgreSQL, SQLite, Redis), dev tools, developer cloud APIs, and productivity applications. |
+
+---
+
+## 🎯 Key Architectural Highlights
+
+```mermaid
+flowchart LR
+    subgraph Clients["🤖 AI Clients & Runtimes"]
+        C1["Claude Desktop / Code"]
+        C2["Cursor & Codex IDEs"]
+        C3["Autonomous Agent Frameworks"]
+    end
+
+    subgraph Gateway["🔐 MCP Gateway & Action Layer"]
+        G1["OAuth & Identity Broker"]
+        G2["AST Inspection & Permissions"]
+        G3["Context & Token Optimizer"]
+    end
+
+    subgraph Servers["📦 MCP Servers & Endpoints"]
+        S1["Filesystem & Git"]
+        S2["Databases & Knowledge Graphs"]
+        S3["Enterprise SaaS APIs"]
+        S4["Browser Automation"]
+    end
+
+    Clients <-->|"JSON-RPC 2.0 (stdio / SSE)"| Gateway
+    Gateway <-->|"Standardized MCP Tools"| Servers
+```
+
+- **Transport Decoupling:** MCP operates seamlessly over both local standard input/output (`stdio`) and remote HTTP streaming (`Server-Sent Events / SSE`), making it equally viable for local command-line tools and distributed cloud microservices.
+- **Three Core Primitives:**
+  - **Tools:** Callable executable routines with typed JSON Schema contracts that produce dynamic side effects.
+  - **Resources:** Passive, URI-addressable data sources (file contents, database schemas, log outputs).
+  - **Prompts:** Pre-engineered templates with conversational context parameters.
+- **Security Isolation:** Local servers run with isolated process permissions; enterprise gateways introduce centralized OAuth tokens, mitigating credential exposure to language models.
+
+---
+
+## 🤝 How to Contribute
+
+We welcome additions, updates, and ecosystem improvements from the community!
+
+1. 🍴 **Fork this repository**.
+2. 🌿 **Create a new branch** (`git checkout -b feature/add-new-mcp-tool`).
+3. 📝 **Add your entry** to either the [Enterprise SaaS table](#-enterprise-saas--managed-mcp-gateways) or [Open-Source table](#️-open-source-mcp-servers-sdks--tooling):
+   - Include factual pricing, free tier limits, and verifiable company/star statistics.
+   - For open-source repos, ensure the star badge uses the required `style=social&color=white` badge parameters.
+   - Maintain sorted order (descending by company size or stars).
+4. 🚀 **Submit a Pull Request** with a brief summary of the project and its MCP relevance.
+
+---
+
+## 🛡️ Security & Operational Disclaimer
+
+- **Community Verification:** This list is curated for informational purposes. MCP servers execute code and interact with host environments with the privileges of the executing process.
+- **Inspect Capabilities Before Connection:** Always inspect whether an MCP server requests unrestricted local filesystem access, outbound network access, or shell execution.
+- **Reference Implementations:** Start with the **[Official Reference Servers](https://github.com/modelcontextprotocol/servers)** for canonical security patterns. When deploying unvetted servers, utilize sandboxes or gateway proxies.
+
+---
+
+## 📈 Star History
+
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-Model-Context-Protocol-MCP&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-Model-Context-Protocol-MCP&type=date&legend=top-left)
+
+---
+
+## 💖 Support & Community
+
+If you find this curated Model Context Protocol (MCP) guide helpful:
+- ⭐ **Star this repository** to improve discoverability for developers building agent tooling.
+- 🍴 **Fork and share** with your AI engineering team and agentic communities.
+- 💬 Join our collaborative discussions on Discord.
+- ☕ **Sponsor the Maintainer**: Support continuous research and maintenance via the **[GitHub Sponsors Dashboard](https://github.com/sponsors/ishandutta2007)**.
