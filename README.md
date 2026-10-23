@@ -72,7 +72,7 @@ High-impact open-source implementations, official protocol libraries, developer 
 
 *Sorted descending by GitHub Stargazer Count.*
 
-| 📦 Repository & Project | ⭐ GitHub Stars | 📜 License | 💡 Architecture & Primary Use Case |
+| 📦 Repository & Project | ⭐ GitHub_Stars | 📜 License | 💡 Architecture & Primary Use Case |
 | :--- | :--- | :--- | :--- |
 | **[punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)** | [![Stars](https://img.shields.io/github/stars/punkpeye/awesome-mcp-servers?style=social&color=white)](https://github.com/punkpeye/awesome-mcp-servers/stargazers) | MIT | **De facto community directory** organizing hundreds of community MCP servers with metadata tags for language, cloud vs. local runtime, and platform compatibility. |
 | **[modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers)** | [![Stars](https://img.shields.io/github/stars/modelcontextprotocol/servers?style=social&color=white)](https://github.com/modelcontextprotocol/servers/stargazers) | Apache-2.0 | **Official reference servers** maintained by protocol authors: `Everything` (test/demo), `Fetch` (web extraction), `Filesystem` (secure file I/O), `Git` (VCS operations), `Memory` (knowledge graph), `Sequential Thinking`, and `Time`. |
@@ -145,8 +145,8 @@ Contributions, project submissions, and documentation enhancements are highly en
    ```
 3. 📝 **Add your entry** ensuring clear, factual descriptions, links to official documentation, and consistent Markdown table formatting:
    - For SaaS tools: include starting tier pricing, free tier limits, and verifiable company valuation/funding.
-   - For open-source repos: include a star badge using the `style=social&color=white` parameters linking to the stargazers page.
-   - Maintain sorted order (descending by company size or star count).
+   - For open-source repos: include a Stars_Badge using the `style=social&color=white` parameters linking to the stargazers page.
+   - Maintain sorted order (descending by company size or Stars_Count).
 4. 🚀 **Commit your modifications** and **open a Pull Request** with an informative summary of your changes.
 
 ---
