@@ -161,7 +161,7 @@ If you find this curated Model Context Protocol (MCP) guide helpful:
 - ☕ **Sponsor the Maintainer**: Support continuous research and maintenance via the **[GitHub Sponsors Dashboard](https://github.com/sponsors/ishandutta2007)**.
 # Awesome-Model-Context-Protocol-MCP
 
-# Top Module Bundlers Ecosystem
+## Top Module Bundlers Ecosystem
 
 **Curated List of SaaS Products & Open-Source GitHub Projects**  
 *Focused on Native ESM Dev Servers, Rust-Powered Bundling & Legacy Ecosystem Compatibility*  
