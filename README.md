@@ -1,6 +1,6 @@
 # Awesome-Model-Context-Protocol-MCP
 
-# Top Model Context Protocol (MCP) Tools Ecosystem
+## Top Model Context Protocol (MCP) Tools Ecosystem
 
 **Curated List of SaaS Products & Open-Source GitHub Projects**  
 *Focused on Tool Discovery, OAuth-Managed Connectivity & Standardized Server Implementations*  
